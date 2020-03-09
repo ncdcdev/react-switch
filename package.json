@@ -18,6 +18,7 @@
     "gzip-size": "node -e \"process.stdout.write('gzip size: ')\" && gzip-size --raw dist/react-switch.min.js",
     "analyze-bundle": "webpack --mode production --profile --json > stats.json && webpack-bundle-analyzer stats.json demo/dist -s gzip"
   },
+  "prepare": "npm run build",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/markusenglund/react-switch.git"

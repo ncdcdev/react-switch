@@ -171,9 +171,9 @@ class ReactSwitch extends Component {
 
   $onClick(event) {
     event.preventDefault();
-    this.$inputRef.focus();
-    this.$onChange(event);
-    this.setState({ $hasOutline: false });
+    // this.$inputRef.focus();
+    // this.$onChange(event);
+    // this.setState({ $hasOutline: false });
   }
 
   $onChange(event) {
