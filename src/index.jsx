@@ -183,6 +183,7 @@ class ReactSwitch extends Component {
 
   render() {
     const {
+      key,
       disabled,
       className,
       offColor,
@@ -313,7 +314,7 @@ class ReactSwitch extends Component {
     };
 
     return (
-      <div className={className} style={rootStyle}>
+      <div key={key} className={className} style={rootStyle}>
         <div
           className="react-switch-bg"
           style={backgroundStyle}
@@ -353,6 +354,7 @@ class ReactSwitch extends Component {
   }
 }
 ReactSwitch.propTypes = {
+  key: PropTypes.string,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
@@ -372,6 +374,7 @@ ReactSwitch.propTypes = {
 };
 
 ReactSwitch.defaultProps = {
+  key: '',
   disabled: false,
   offColor: "#888",
   onColor: "#080",

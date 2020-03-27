@@ -343,6 +343,7 @@ function (Component) {
 
   ReactSwitch.prototype.render = function render() {
     var ref = this.props;
+    var key = ref.key;
     var disabled = ref.disabled;
     var className = ref.className;
     var offColor = ref.offColor;
@@ -356,7 +357,7 @@ function (Component) {
     var height = ref.height;
     var width = ref.width;
     var handleDiameter = ref.handleDiameter;
-    var rest$1 = objectWithoutProperties(ref, ["disabled", "className", "offColor", "onColor", "offHandleColor", "onHandleColor", "checkedIcon", "uncheckedIcon", "boxShadow", "activeBoxShadow", "height", "width", "handleDiameter"]);
+    var rest$1 = objectWithoutProperties(ref, ["key", "disabled", "className", "offColor", "onColor", "offHandleColor", "onHandleColor", "checkedIcon", "uncheckedIcon", "boxShadow", "activeBoxShadow", "height", "width", "handleDiameter"]);
     var rest = rest$1;
     var ref$1 = this.state;
     var $pos = ref$1.$pos;
@@ -441,6 +442,7 @@ function (Component) {
       width: 1
     };
     return React.createElement('div', {
+      key: key,
       className: className,
       style: rootStyle
     }, React.createElement('div', {
@@ -483,6 +485,7 @@ function (Component) {
 }(React.Component);
 
 ReactSwitch.propTypes = {
+  key: PropTypes.string,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
@@ -501,6 +504,7 @@ ReactSwitch.propTypes = {
   className: PropTypes.string
 };
 ReactSwitch.defaultProps = {
+  key: '',
   disabled: false,
   offColor: "#888",
   onColor: "#080",
