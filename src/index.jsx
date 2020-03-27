@@ -183,7 +183,7 @@ class ReactSwitch extends Component {
 
   render() {
     const {
-      key,
+      keyPrefix,
       disabled,
       className,
       offColor,
@@ -314,10 +314,10 @@ class ReactSwitch extends Component {
     };
 
     return (
-      <div key={key} data-debug={key} className={className} style={rootStyle}>
+      <div key={keyPrefix} data-debug={keyPrefix} className={className} style={rootStyle}>
         <div
-          key={`${key}-bg`}
-          data-debug={`${key}-bg`}
+          key={`${keyPrefix}-bg`}
+          data-debug={`${keyPrefix}-bg`}
           className="react-switch-bg"
           style={backgroundStyle}
           onClick={disabled ? null : this.$onClick}
@@ -329,8 +329,8 @@ class ReactSwitch extends Component {
           )}
         </div>
         <div
-          key={`${key}-handle`}
-          data-debug={`${key}-handle`}
+          key={`${keyPrefix}-handle`}
+          data-debug={`${keyPrefix}-handle`}
           className="react-switch-handle"
           style={handleStyle}
           onClick={e => e.preventDefault()}
@@ -341,8 +341,8 @@ class ReactSwitch extends Component {
           onTouchCancel={disabled ? null : this.$unsetHasOutline}
         />
         <input
-          key={`${key}-input`}
-          data-debug={`${key}-input`}
+          key={`${keyPrefix}-input`}
+          data-debug={`${keyPrefix}-input`}
           type="checkbox"
           role="switch"
           disabled={disabled}
@@ -360,7 +360,7 @@ class ReactSwitch extends Component {
   }
 }
 ReactSwitch.propTypes = {
-  key: PropTypes.string,
+  keyPrefix: PropTypes.string,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
@@ -380,7 +380,7 @@ ReactSwitch.propTypes = {
 };
 
 ReactSwitch.defaultProps = {
-  key: '',
+  keyPrefix: '',
   disabled: false,
   offColor: "#888",
   onColor: "#080",

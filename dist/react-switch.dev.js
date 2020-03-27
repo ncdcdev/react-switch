@@ -343,7 +343,7 @@ function (Component) {
 
   ReactSwitch.prototype.render = function render() {
     var ref = this.props;
-    var key = ref.key;
+    var keyPrefix = ref.keyPrefix;
     var disabled = ref.disabled;
     var className = ref.className;
     var offColor = ref.offColor;
@@ -357,7 +357,7 @@ function (Component) {
     var height = ref.height;
     var width = ref.width;
     var handleDiameter = ref.handleDiameter;
-    var rest$1 = objectWithoutProperties(ref, ["key", "disabled", "className", "offColor", "onColor", "offHandleColor", "onHandleColor", "checkedIcon", "uncheckedIcon", "boxShadow", "activeBoxShadow", "height", "width", "handleDiameter"]);
+    var rest$1 = objectWithoutProperties(ref, ["keyPrefix", "disabled", "className", "offColor", "onColor", "offHandleColor", "onHandleColor", "checkedIcon", "uncheckedIcon", "boxShadow", "activeBoxShadow", "height", "width", "handleDiameter"]);
     var rest = rest$1;
     var ref$1 = this.state;
     var $pos = ref$1.$pos;
@@ -442,13 +442,13 @@ function (Component) {
       width: 1
     };
     return React.createElement('div', {
-      key: key,
-      'data-debug': key,
+      key: keyPrefix,
+      'data-debug': keyPrefix,
       className: className,
       style: rootStyle
     }, React.createElement('div', {
-      key: key + "-bg",
-      'data-debug': key + "-bg",
+      key: keyPrefix + "-bg",
+      'data-debug': keyPrefix + "-bg",
       className: "react-switch-bg",
       style: backgroundStyle,
       onClick: disabled ? null : this.$onClick,
@@ -460,8 +460,8 @@ function (Component) {
     }, checkedIcon$$1), uncheckedIcon$$1 && React.createElement('div', {
       style: uncheckedIconStyle
     }, uncheckedIcon$$1)), React.createElement('div', {
-      key: key + "-handle",
-      'data-debug': key + "-handle",
+      key: keyPrefix + "-handle",
+      'data-debug': keyPrefix + "-handle",
       className: "react-switch-handle",
       style: handleStyle,
       onClick: function (e) {
@@ -473,8 +473,8 @@ function (Component) {
       onTouchEnd: disabled ? null : this.$onTouchEnd,
       onTouchCancel: disabled ? null : this.$unsetHasOutline
     }), React.createElement('input', _extends({}, {
-      key: key + "-input",
-      'data-debug': key + "-input",
+      key: keyPrefix + "-input",
+      'data-debug': keyPrefix + "-input",
       type: "checkbox",
       role: "switch",
       disabled: disabled,
@@ -492,7 +492,7 @@ function (Component) {
 }(React.Component);
 
 ReactSwitch.propTypes = {
-  key: PropTypes.string,
+  keyPrefix: PropTypes.string,
   checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
@@ -511,7 +511,7 @@ ReactSwitch.propTypes = {
   className: PropTypes.string
 };
 ReactSwitch.defaultProps = {
-  key: '',
+  keyPrefix: '',
   disabled: false,
   offColor: "#888",
   onColor: "#080",
