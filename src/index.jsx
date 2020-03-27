@@ -314,9 +314,10 @@ class ReactSwitch extends Component {
     };
 
     return (
-      <div key={key} className={className} style={rootStyle}>
+      <div key={key} data-debug={key} className={className} style={rootStyle}>
         <div
           key={`${key}-bg`}
+          data-debug={`${key}-bg`}
           className="react-switch-bg"
           style={backgroundStyle}
           onClick={disabled ? null : this.$onClick}
@@ -329,6 +330,7 @@ class ReactSwitch extends Component {
         </div>
         <div
           key={`${key}-handle`}
+          data-debug={`${key}-handle`}
           className="react-switch-handle"
           style={handleStyle}
           onClick={e => e.preventDefault()}
@@ -340,6 +342,7 @@ class ReactSwitch extends Component {
         />
         <input
           key={`${key}-input`}
+          data-debug={`${key}-input`}
           type="checkbox"
           role="switch"
           disabled={disabled}

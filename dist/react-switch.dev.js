@@ -443,10 +443,12 @@ function (Component) {
     };
     return React.createElement('div', {
       key: key,
+      'data-debug': key,
       className: className,
       style: rootStyle
     }, React.createElement('div', {
       key: key + "-bg",
+      'data-debug': key + "-bg",
       className: "react-switch-bg",
       style: backgroundStyle,
       onClick: disabled ? null : this.$onClick,
@@ -459,6 +461,7 @@ function (Component) {
       style: uncheckedIconStyle
     }, uncheckedIcon$$1)), React.createElement('div', {
       key: key + "-handle",
+      'data-debug': key + "-handle",
       className: "react-switch-handle",
       style: handleStyle,
       onClick: function (e) {
@@ -471,6 +474,7 @@ function (Component) {
       onTouchCancel: disabled ? null : this.$unsetHasOutline
     }), React.createElement('input', _extends({}, {
       key: key + "-input",
+      'data-debug': key + "-input",
       type: "checkbox",
       role: "switch",
       disabled: disabled,
