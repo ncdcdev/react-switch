@@ -83,21 +83,20 @@ class ReactSwitch extends Component {
 
     // Simulate clicking the handle
     const timeSinceStart = Date.now() - $dragStartingTime;
-    if (!$isDragging || timeSinceStart < 250) {
-      // this.$onChange(event);
-
+    if ($isDragging) {
       // Handle dragging from checked position
-    } else if (checked) {
-      if ($pos > halfwayCheckpoint) {
-        this.setState({ $pos: this.$checkedPos });
+      if (checked) {
+        if ($pos > halfwayCheckpoint) {
+          this.setState({ $pos: this.$checkedPos });
+        } else {
+          this.$onChange(event);
+        }
+        // Handle dragging from unchecked position
+      } else if ($pos < halfwayCheckpoint) {
+        this.setState({ $pos: this.$uncheckedPos });
       } else {
         this.$onChange(event);
       }
-      // Handle dragging from unchecked position
-    } else if ($pos < halfwayCheckpoint) {
-      this.setState({ $pos: this.$uncheckedPos });
-    } else {
-      this.$onChange(event);
     }
 
     this.setState({ $isDragging: false, $hasOutline: false });

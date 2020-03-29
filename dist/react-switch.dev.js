@@ -228,23 +228,24 @@ function (Component) {
     var checked = ref$1.checked;
     var halfwayCheckpoint = (this.$checkedPos + this.$uncheckedPos) / 2; // Simulate clicking the handle
 
-    var timeSinceStart = Date.now() - $dragStartingTime;
+    if ($isDragging) {
+      // Handle dragging from checked position
+      if (checked) {
+        if ($pos > halfwayCheckpoint) {
+          this.setState({
+            $pos: this.$checkedPos
+          });
+        } else {
+          this.$onChange(event);
+        } // Handle dragging from unchecked position
 
-    if (!$isDragging || timeSinceStart < 250) ; else if (checked) {
-      if ($pos > halfwayCheckpoint) {
+      } else if ($pos < halfwayCheckpoint) {
         this.setState({
-          $pos: this.$checkedPos
+          $pos: this.$uncheckedPos
         });
       } else {
         this.$onChange(event);
-      } // Handle dragging from unchecked position
-
-    } else if ($pos < halfwayCheckpoint) {
-      this.setState({
-        $pos: this.$uncheckedPos
-      });
-    } else {
-      this.$onChange(event);
+      }
     }
 
     this.setState({
