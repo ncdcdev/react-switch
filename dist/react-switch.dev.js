@@ -230,9 +230,7 @@ function (Component) {
 
     var timeSinceStart = Date.now() - $dragStartingTime;
 
-    if (!$isDragging || timeSinceStart < 250) {
-      this.$onChange(event); // Handle dragging from checked position
-    } else if (checked) {
+    if (!$isDragging || timeSinceStart < 250) ; else if (checked) {
       if ($pos > halfwayCheckpoint) {
         this.setState({
           $pos: this.$checkedPos

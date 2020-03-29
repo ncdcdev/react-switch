@@ -84,7 +84,7 @@ class ReactSwitch extends Component {
     // Simulate clicking the handle
     const timeSinceStart = Date.now() - $dragStartingTime;
     if (!$isDragging || timeSinceStart < 250) {
-      this.$onChange(event);
+      // this.$onChange(event);
 
       // Handle dragging from checked position
     } else if (checked) {
